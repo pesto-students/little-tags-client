@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(0),
   },
   title: {
+    marginLeft: 2,
     // display: "none",
     // [theme.breakpoints.up("sm")]: {
     //   display: "block",
@@ -173,10 +174,11 @@ const Navbar = () => {
             color="inherit"
           >
             <LocalOfferOutlinedIcon />
+            <Typography className={classes.title} variant="h6" noWrap>
+              Little Tag
+            </Typography>
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Little Tag
-          </Typography>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -199,9 +201,7 @@ const Navbar = () => {
               <span className={classes.iconText}>Cart</span>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={0} color="secondary">
-                <AccountCircleOutlinedIcon />
-              </Badge>
+              <AccountCircleOutlinedIcon />
               <span className={classes.iconText}>Account</span>
             </IconButton>
             <IconButton
