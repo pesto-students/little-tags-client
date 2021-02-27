@@ -1,46 +1,36 @@
-import {
-  AppBar,
-  Button,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
 import "./App.css";
-import { LocalOffer } from "@material-ui/icons";
+import Navbar from "./component/layout/Navbar";
+import HomePage from "./component/pages/HomePage";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { IntlProvider, FormattedMessage } from "react-intl";
+import React from "react";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+const langs = {
+  en: {
+    welcome: "Welcome to OneTagShop",
+    cart: "Cart",
+    account: "Sign in",
+    language: "English",
+    search: "Search your product",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  hi: {
+    welcome: "OneTagShop में आपका स्वागत है",
+    cart: "कार्ट",
+    account: "साइन इन करें",
+    language: "हिन्दी",
+    search: "अपना उत्पाद खोजें",
   },
-  title: {
-    flexGrow: 1,
-  },
-}));
+};
 
 function App() {
-  const classes = useStyles();
-
+  const [locale, setLocale] = React.useState("hi");
   return (
-    <AppBar color="transparent" position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="tag"
-        >
-          <LocalOffer />
-        </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          Little Tag
-        </Typography>
-        <Button color="inherit">Login</Button>
-      </Toolbar>
-    </AppBar>
+    <IntlProvider locale={locale} messages={langs[locale]}>
+      <Router>
+        <Navbar handleLanguageChange={(lang) => setLocale(lang)} />
+        <Route exact path="/" component={HomePage} />
+      </Router>
+    </IntlProvider>
   );
 }
 
