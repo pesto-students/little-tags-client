@@ -8,12 +8,13 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import LocalOfferOutlinedIcon from "@material-ui/icons/LocalOfferOutlined";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
+import { FormattedMessage } from "react-intl";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -83,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = () => {
+const Navbar = ({ handleLanguageChange }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -119,8 +120,22 @@ const Navbar = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>English</MenuItem>
-      <MenuItem onClick={handleMenuClose}>हिन्दी</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleLanguageChange("en");
+          handleMenuClose();
+        }}
+      >
+        English
+      </MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleLanguageChange("hi");
+          handleMenuClose();
+        }}
+      >
+        हिन्दी
+      </MenuItem>
     </Menu>
   );
 
@@ -136,20 +151,24 @@ const Navbar = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+        <IconButton color="inherit">
           <Badge badgeContent={0} color="secondary">
             <ShoppingCartOutlinedIcon />
           </Badge>
         </IconButton>
-        <p>Cart</p>
+        <p>
+          <FormattedMessage id="cart" />
+        </p>
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
+        <IconButton color="inherit">
           <Badge badgeContent={0} color="secondary">
             <AccountCircleOutlinedIcon />
           </Badge>
         </IconButton>
-        <p>Account</p>
+        <p>
+          <FormattedMessage id="account" />
+        </p>
       </MenuItem>
       <MenuItem onClick={handleLanguageOptions}>
         <IconButton
@@ -159,7 +178,9 @@ const Navbar = () => {
         >
           <LanguageOutlinedIcon />
         </IconButton>
-        <p>Language</p>
+        <p>
+          <FormattedMessage id="language" />
+        </p>
       </MenuItem>
     </Menu>
   );
@@ -173,9 +194,9 @@ const Navbar = () => {
             className={classes.menuButton}
             color="inherit"
           >
-            <LocalOfferOutlinedIcon />
+            <StorefrontOutlinedIcon />
             <Typography className={classes.title} variant="h6" noWrap>
-              Little Tag
+              OneTagShop
             </Typography>
           </IconButton>
 
@@ -184,7 +205,7 @@ const Navbar = () => {
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search products"
+              placeholder="Search your products"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -194,15 +215,19 @@ const Navbar = () => {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            <IconButton color="inherit">
               <Badge badgeContent={0} color="secondary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
-              <span className={classes.iconText}>Cart</span>
+              <span className={classes.iconText}>
+                <FormattedMessage id="cart" />
+              </span>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton color="inherit">
               <AccountCircleOutlinedIcon />
-              <span className={classes.iconText}>Account</span>
+              <span className={classes.iconText}>
+                <FormattedMessage id="account" />
+              </span>
             </IconButton>
             <IconButton
               edge="end"
@@ -212,7 +237,9 @@ const Navbar = () => {
               color="inherit"
             >
               <LanguageOutlinedIcon />
-              <span className={classes.iconText}>English</span>
+              <span className={classes.iconText}>
+                <FormattedMessage id="language" />
+              </span>
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

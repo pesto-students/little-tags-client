@@ -1,7 +1,12 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
-  return <div>Little Tag</div>;
+  return (
+    <h1>
+      <FormattedMessage id="welcome" />
+    </h1>
+  );
 };
 
 export default HomePage;
