@@ -1,0 +1,16 @@
+{
+  "en": {
+    "welcome": "Welcome to OneTagShop",
+    "cart": "Cart",
+    "account": "Sign in",
+    "language": "English",
+    "search": "Search your product"
+  },
+  "hi": {
+    "welcome": "OneTagShop में आपका स्वागत है",
+    "cart": "कार्ट",
+    "account": "साइन इन करें",
+    "language": "हिन्दी",
+    "search": "अपना उत्पाद खोजें"
+  }
+}

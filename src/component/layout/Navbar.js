@@ -15,6 +15,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import { FormattedMessage } from "react-intl";
+import Login from "../auth/Login";
+import { Icon } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -92,6 +94,16 @@ const Navbar = ({ handleLanguageChange }) => {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handleLanguageOptions = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -161,7 +173,7 @@ const Navbar = ({ handleLanguageChange }) => {
         </p>
       </MenuItem>
       <MenuItem>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={handleClickOpen}>
           <Badge badgeContent={0} color="secondary">
             <AccountCircleOutlinedIcon />
           </Badge>
@@ -223,7 +235,7 @@ const Navbar = ({ handleLanguageChange }) => {
                 <FormattedMessage id="cart" />
               </span>
             </IconButton>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={handleClickOpen}>
               <AccountCircleOutlinedIcon />
               <span className={classes.iconText}>
                 <FormattedMessage id="account" />
@@ -254,6 +266,7 @@ const Navbar = ({ handleLanguageChange }) => {
           </div>
         </Toolbar>
       </AppBar>
+      <Login open={open} handleClose={handleClose} />
       {renderMobileMenu}
       {renderMenu}
     </div>
