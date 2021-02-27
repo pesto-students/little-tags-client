@@ -3,55 +3,67 @@ import {
   Button,
   Dialog,
   DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
   makeStyles,
+  Typography,
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
 import React from "react";
+import image from "../../assets/login_banner.png";
+import googleIcon from "../../assets/google.jpg";
+import facebookIcon from "../../assets/facebook.png";
+import phoneIcon from "../../assets/phone.png";
 
 const useStyles = makeStyles((theme) => ({
-  center: {
-    display: "flex",
-    justifyContent: "center",
-  },
   contents: {
     display: "flex",
-    alignItems: "flex-end",
-    justifyContent: "flex-end",
-    margin: theme.spacing(10),
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    [theme.breakpoints.down("sm")]: {
+      width: "auto",
+      height: "auto",
+    },
   },
-  button: {
-    margin: theme.spacing(1),
+  banner: {},
+  buttons: {
+    display: "flex",
+  },
+  google: {
+    marginRight: theme.spacing(0.5),
+  },
+  phone: {
+    marginLeft: theme.spacing(0.5),
   },
 }));
 
 const Login = ({ open, handleClose }) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   const classes = useStyles();
 
   return (
-    <Dialog fullScreen={fullScreen} open={open}>
-      <DialogTitle className={classes.center}>Sign in</DialogTitle>
-      <DialogContent className={classes.contents}>
-        <Button className={classes.button} variant="outlined">
-          <Avatar alt="google login" src="../../assets/cart.png" /> Google
-        </Button>
-        <Button className={classes.button} variant="outlined">
-          <Avatar alt="facebook login" src="../../assets/cart.png" />
-          Facebook
-        </Button>
-        <Button className={classes.button} variant="outlined">
-          <Avatar alt="phone login" src="../../assets/cart.png" /> Phone
-        </Button>
-      </DialogContent>
+    <Dialog fullScreen={fullScreen} scroll="body" open={open}>
+      <div className={classes.contents}>
+        <div>
+          <img className={classes.banner} src={image} />
+        </div>
+        <Typography className={classes.center}>Sign in with</Typography>
+        <div className={classes.buttons}>
+          <Button className={classes.google} variant="outlined">
+            <Avatar alt="google login" src={googleIcon} /> Google
+          </Button>
+          <Button variant="outlined">
+            <Avatar alt="facebook login" src={facebookIcon} />
+            Facebook
+          </Button>
+          <Button className={classes.phone} variant="outlined">
+            <Avatar alt="phone login" src={phoneIcon} /> Phone
+          </Button>
+        </div>
+      </div>
       <DialogActions>
         <Button onClick={handleClose}>Skip</Button>
       </DialogActions>

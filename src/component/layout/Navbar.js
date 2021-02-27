@@ -173,7 +173,7 @@ const Navbar = ({ handleLanguageChange }) => {
         </p>
       </MenuItem>
       <MenuItem>
-        <IconButton color="inherit">
+        <IconButton color="inherit" onClick={handleClickOpen}>
           <Badge badgeContent={0} color="secondary">
             <AccountCircleOutlinedIcon />
           </Badge>
