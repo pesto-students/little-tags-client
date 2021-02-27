@@ -1,11 +1,10 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { Carousel } from "../carousel/Carousel";
 
 const HomePage = () => {
   return (
-    <h1>
-      <FormattedMessage id="welcome" />
-    </h1>
+    <Carousel></Carousel>
   );
 };
 
