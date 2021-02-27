@@ -1,7 +1,7 @@
 // import React from 'react';
 import { useState } from "react";
 import "./carousel.css";
-import Button from '@material-ui/core/Button';
+
 function Carousel(params) {
   const slides = [
     {
