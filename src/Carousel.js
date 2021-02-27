@@ -1,64 +1,82 @@
 // import React from 'react';
 import { useState } from "react";
 import "./carousel.css";
-
-function Slide(params) {
-  return (
-    <div className="mySlides fade">
-      <img className="slider-image" src={params.src} alt={params.alt} />
-    </div>
-  );
-}
+import Button from '@material-ui/core/Button';
 function Carousel(params) {
+  const slides = [
+    {
+      image: "./women.jpg",
+      alt:'women-banner',
+      'message1':'Exclusive offer for her',
+      'message2':'Wear The Season\'s Latest Trends',
+      'btn-text':'Buy Now'
+
+    },
+    {
+      image: "./mens.jpg",
+      alt:'mens-banner',
+      'message1':'Exclusive offer for Him',
+      'message2':'We know what you will wear this summer',
+      'btn-text':'Buy Now'
+    },
+    {
+      image: "./kids.jpg",
+      alt:'kids-banner',
+      'message1':'Exclusive offer for your Kids',
+      'message2':'Catch the best deals',
+      'btn-text':'Buy Now'
+    },
+  ];
+
+  let [slideIndex, setSlideIndex] = useState(0);
+  const length = 3;
+
+  const nextSlide = () => {
+    setSlideIndex(slideIndex === length - 1 ? 0 : slideIndex + 1);
+  };
+
+  const prevSlide = () => {
+    setSlideIndex(slideIndex === 0 ? length - 1 : slideIndex - 1);
+  };
+
+  const showSlide = (slideNumber) => {
+    setSlideIndex(slideNumber);
+  }
+
+
   return (
     <>
       <div className="slideshow-container">
-        <Slide src="./1.jpg" alt="Slide 1"></Slide>
-        <Slide src="./2.jpg" alt="Slide 2"></Slide>
-        <Slide src="./3.jpg" alt="Slide 3"></Slide>
+      {slides.map((slide, index) => {
+        return (
+          <div
+            className={index === slideIndex ? 'fade' : 'mySlides'}
+            key={index}
+          >
+              <div className='message-container'>
+                <h1 className="message1">{slide.message1}</h1>
+                <h1 className="message2">{slide.message2}</h1>
+                <button className='buy-now'>{slide["btn-text"]}</button>
+             </div>
+             
+              <img src={slide.image} alt={slide.alt} className='image' />
+              
+            
+          </div>
+        );
+      })}
 
-        <a  className="prev" onClick={ShowSlides(-1)}>&#10094;</a>
-        <a  className="next" onClick={ShowSlides(1)}>&#10095;</a>
+        <span  className="prev" onClick={prevSlide}>&#10094;</span>
+        <span className="next" onClick={nextSlide}>&#10095;</span>
       </div>
       <br />
-
       <div className="dot-container">
-        <span className="dot" onClick={ShowSlides(1)}></span>
-        <span className="dot" onClick={ShowSlides(2)}></span>
-        <span className="dot" onClick={ShowSlides(3)}></span>
+        <span className="dot" onClick={() =>{ showSlide(0)}}></span>
+        <span className="dot" onClick={() =>{ showSlide(1)}}></span>
+        <span className="dot" onClick={() =>{ showSlide(2)}}></span>
       </div>
     </>
   );
-
-  function ShowSlides(n) {
-
-    let [slideIndex, setSlideIndex] = useState(1);
-  // console.log(n);
-    if (slideIndex !== 1) {
-      setSlideIndex(n);
-    }
-  // console.log(slideIndex);
-    const slides = document.getElementsByClassName("mySlides");
-    // console.log(slides);
-    // const dots = document.getElementsByClassName("dot");
-  // console.log(dots);
-    // if (n > slides.length) {
-    //   setSlideIndex( 1 );
-    // }
-    // if (n < 1) {
-    //   setSlideIndex( slides.length);
-    // }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    // for (let i = 0; i < dots.length; i++) {
-    //   dots[i].className = dots[i].className.replace(" active", "");
-    // }
-    slides[slideIndex - 1].style.display = "block";
-    // dots[slideIndex - 1].className += " active";
-  }
 }
-
-
 
 export { Carousel };

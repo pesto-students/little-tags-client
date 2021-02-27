@@ -1,101 +1,200 @@
-body {font-family: Verdana, sans-serif; margin:0}
-  .mySlides {display: none}
-  .slider-image {vertical-align: middle; width: 100%; }
-  
-  /* Slideshow container */
-  .slideshow-container {
-    /* max-width: 1000px; */
-    position: relative;
-    margin: auto;
+.mySlides {
+  display: none;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  height: 600px;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image {
+  width: 100%;
+  height: 600px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  display: flex;
+  max-height: inherit;
+}
+
+.dot-container {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
   }
-  
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+  to {
+    opacity: 1;
   }
-  
-  /* Position the "next button" to the right */
+}
+
+
+.message-container{
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+.message1{
+  width:35%;
+  position: absolute;
+  top:20%;
+  left:15%;
+  overflow-wrap: break-word;
+  animation: move-left-to-right-h1 3s;
+  text-align: center;
+}
+
+.message2{
+  width:35%;
+  position: absolute;
+  top:30%;
+  left:15%;
+  overflow-wrap: break-word;
+  animation: move-left-to-right-h2 3s;
+  text-align: center;
+}
+
+.buy-now {
+  width:10%;
+  left:28%;
+  top:45%;
+  background: black;
+  color: white;
+  width: 10%;
+  padding: 1%;
+  border-radius: 5px;
+  font-size: inherit;
+  position: absolute;
+  animation: move-left-to-right-button 3s;
+}
+
+@keyframes move-left-to-right-h1 {
+  0%   {top: 20%; left: -100%;}
+  100% {top: 20%; left: 15%;}
+}
+@keyframes move-left-to-right-h2 {
+  0%   {top: 30%; left: -100%;}
+  100% {top: 30%; left: 15%;}
+}
+@keyframes move-left-to-right-button {
+  0%   {top: 45%; left: -100%;}
+  100% {top: 45%; left: 28%;}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev,
   .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    font-size: 11px;
   }
   
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-  
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-  
-  /* Fading animation */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
+}
+
+@media only screen and (max-width: 1024px) {
+  .slideshow-container {
+    height: 300px;
   }
 
-  .dot-container{
-    display: flex;
-    justify-content: center;
+  .image {
+    height: 300px;
   }
+
+  .message1, .message2 {
+    font-size: large;
+  }
+  .buy-now{
+    width: 13%;
+    font-size: xx-small;
+    top: 53%;
+    left: 25%;
+  }
+
+  @keyframes move-left-to-right-button {
+    0%   {top: 53%; left: -100%;}
+    100% {top: 53%; left: 25%;}
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .slideshow-container {
+    height: 200px;
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .message1, .message2 {
+    font-size: x-small;
+  }
+
+  .buy-now{
+    width: 15%;
+    font-size: xx-small;
+    top: 50%;
+    left: 25%;
+  }
+
+  @keyframes move-left-to-right-button {
+    0%   {top: 50%; left: -100%;}
+    100% {top: 50%; left: 25%;}
+  }
+
+}
