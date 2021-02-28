@@ -1,30 +1,27 @@
 // import React from 'react';
 import { useState } from "react";
 import "./carousel.css";
+import { FormattedMessage } from "react-intl";
 
 function Carousel(params) {
   const slides = [
     {
-      image: "./women.jpg",
+      image: "./carousel-images/women.jpg",
       alt:'women-banner',
-      'message1':'Exclusive offer for her',
-      'message2':'Wear The Season\'s Latest Trends',
-      'btn-text':'Buy Now'
-
+      'id1':'message11',
+      'id2':'message12'
     },
     {
-      image: "./mens.jpg",
+      image: "./carousel-images/mens.jpg",
       alt:'mens-banner',
-      'message1':'Exclusive offer for Him',
-      'message2':'We know what you will wear this summer',
-      'btn-text':'Buy Now'
+      'id1':'message21',
+      'id2':'message22'
     },
     {
-      image: "./kids.jpg",
+      image: "./carousel-images/kids.jpg",
       alt:'kids-banner',
-      'message1':'Exclusive offer for your Kids',
-      'message2':'Catch the best deals',
-      'btn-text':'Buy Now'
+      'id1':'message31',
+      'id2':'message32'
     },
   ];
 
@@ -54,14 +51,17 @@ function Carousel(params) {
             key={index}
           >
               <div className='message-container'>
-                <h1 className="message1">{slide.message1}</h1>
-                <h1 className="message2">{slide.message2}</h1>
-                <button className='buy-now'>{slide["btn-text"]}</button>
+                <h1 className="message1">
+                  <FormattedMessage id={slide.id1} />
+                </h1>
+                <h1 className="message2">
+                  <FormattedMessage id={slide.id2} />
+                </h1>
+                <button className='buy-now'>
+                  <FormattedMessage id="buy" />
+                </button>
              </div>
-             
               <img src={slide.image} alt={slide.alt} className='image' />
-              
-            
           </div>
         );
       })}
