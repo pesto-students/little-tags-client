@@ -4,7 +4,7 @@ import { FormattedMessage } from "react-intl";
 const Card = (params) => {
   return(
       <div className="card">
-        <img src={params.src} alt={params.category}/>
+        <img src={params.src} alt={params.category} width="300px" height="300px"/>
         <div className="overlay"> 
           <FormattedMessage id={params.category} />
         </div>

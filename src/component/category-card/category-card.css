@@ -29,3 +29,9 @@
   box-shadow: 5px 5px 5px 5px;
   transform: translateY(10px);
 }
+
+@media only screen and (max-width: 450px) {
+  .card {
+    margin: 4%;
+  }
+}
