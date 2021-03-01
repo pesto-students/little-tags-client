@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "./carousel.css";
 import { FormattedMessage } from "react-intl";
+// import { women } from "../../assets/carousel-images/women.jpg";
 
 function Carousel(params) {
   const slides = [
@@ -71,9 +72,9 @@ function Carousel(params) {
       </div>
       <br />
       <div className="dot-container">
-        <span className="dot" onClick={() =>{ showSlide(0)}}></span>
-        <span className="dot" onClick={() =>{ showSlide(1)}}></span>
-        <span className="dot" onClick={() =>{ showSlide(2)}}></span>
+        <span className={`dot ${slideIndex === 0 ? "active" : ""}`} onClick={() =>{ showSlide(0)}}></span>
+        <span className={`dot ${slideIndex === 1 ? "active" : ""}`} onClick={() =>{ showSlide(1)}}></span>
+        <span className={`dot ${slideIndex === 2 ? "active" : ""}`} onClick={() =>{ showSlide(2)}}></span>
       </div>
     </>
   );
