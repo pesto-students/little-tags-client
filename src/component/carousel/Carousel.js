@@ -2,32 +2,28 @@
 import { useState } from "react";
 import "./carousel.css";
 import { FormattedMessage } from "react-intl";
+import banner1 from "../../assets/carousel-images/1.png";
+import banner2 from "../../assets/carousel-images/2.png";
 // import { women } from "../../assets/carousel-images/women.jpg";
 
 function Carousel(params) {
   const slides = [
     {
-      image: "./carousel-images/women.jpg",
+      image: banner1,
       alt:'women-banner',
       'id1':'message11',
       'id2':'message12'
     },
     {
-      image: "./carousel-images/mens.jpg",
+      image: banner2,
       alt:'mens-banner',
       'id1':'message21',
       'id2':'message22'
     },
-    {
-      image: "./carousel-images/kids.jpg",
-      alt:'kids-banner',
-      'id1':'message31',
-      'id2':'message32'
-    },
   ];
 
   let [slideIndex, setSlideIndex] = useState(0);
-  const length = 3;
+  const length = 2;
 
   const nextSlide = () => {
     setSlideIndex(slideIndex === length - 1 ? 0 : slideIndex + 1);
@@ -36,10 +32,6 @@ function Carousel(params) {
   const prevSlide = () => {
     setSlideIndex(slideIndex === 0 ? length - 1 : slideIndex - 1);
   };
-
-  const showSlide = (slideNumber) => {
-    setSlideIndex(slideNumber);
-  }
 
 
   return (
@@ -51,17 +43,6 @@ function Carousel(params) {
             className={index === slideIndex ? 'fade' : 'mySlides'}
             key={index}
           >
-              <div className='message-container'>
-                <h1 className="message1">
-                  <FormattedMessage id={slide.id1} />
-                </h1>
-                <h1 className="message2">
-                  <FormattedMessage id={slide.id2} />
-                </h1>
-                <button className='buy-now'>
-                  <FormattedMessage id="buy" />
-                </button>
-             </div>
               <img src={slide.image} alt={slide.alt} className='image' />
           </div>
         );
@@ -71,11 +52,6 @@ function Carousel(params) {
         <span className="next" onClick={nextSlide}>&#10095;</span>
       </div>
       <br />
-      <div className="dot-container">
-        <span className={`dot ${slideIndex === 0 ? "active" : ""}`} onClick={() =>{ showSlide(0)}}></span>
-        <span className={`dot ${slideIndex === 1 ? "active" : ""}`} onClick={() =>{ showSlide(1)}}></span>
-        <span className={`dot ${slideIndex === 2 ? "active" : ""}`} onClick={() =>{ showSlide(2)}}></span>
-      </div>
     </>
   );
 }
