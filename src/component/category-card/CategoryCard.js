@@ -1,34 +1,41 @@
 import React from "react";
-import "./category-card.css";
-import { FormattedMessage } from "react-intl";
-const Card = (params) => {
-  return(
-      <div className="card">
-        <img src={params.src} alt={params.category} width="300px" height="300px"/>
-        <div className="overlay"> 
-          <FormattedMessage id={params.category} />
-        </div>
-      </div>
-  )
-    
-}
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-const CategoryCard = () => {
+const useStyles = makeStyles({
+  root: {
+    minWidth: 300,
+    margin:'1%',
+  },
+  media: {
+    height: 300,
+  },
+  typography:{
+    position:"absolute",
+    top:'0',
+    right:'2%',
+    color:'#ffffff'
+    
+  }
+});
+
+export default function CategoryCard(props) {
+  const classes = useStyles();
 
   return (
-    <div className="card-list">
-      <Card src='./category/Casual-Shoe.webp' category='casual-shoes'></Card>
-      <Card src='./category/Flipflop.webp' category='flip-flops'></Card>
-      <Card src='./category/jeans.jpg' category='jeans'></Card>
-      <Card src='./category/Shirts.webp' category='shirts'></Card>
-      <Card src='./category/Shorts.webp' category='trousers'></Card>
-      <Card src='./category/Trackpants.webp' category='track-pants'></Card>
-      <Card src='./category/T-Shirts.webp' category='t-shirts'></Card>
-      <Card src='./category/Sports-Shoe.webp' category='sports-shoes'></Card>
-      <Card src='./category/Kurta-_-Kurta_sets.webp' category='kurta'></Card>
-      <Card src='./category/Sarees.webp' category='sarees'></Card>      
-    </div>
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={props.src}
+        />
+         <Typography  className={classes.typography} align='center' gutterBottom variant="h4" component="h4" >
+           {props.category}
+          </Typography>
+      </CardActionArea>
+    </Card>
   );
-};
-
-export default CategoryCard;
+}
