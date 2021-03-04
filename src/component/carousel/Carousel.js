@@ -4,7 +4,6 @@ import "./carousel.css";
 import { FormattedMessage } from "react-intl";
 import banner1 from "../../assets/carousel-images/1.png";
 import banner2 from "../../assets/carousel-images/2.png";
-// import { women } from "../../assets/carousel-images/women.jpg";
 
 function Carousel(params) {
   const slides = [

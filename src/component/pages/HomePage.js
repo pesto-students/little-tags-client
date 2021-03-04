@@ -7,7 +7,6 @@ import jeans from "../../assets/category/jeans.png";
 import tshirt from "../../assets/category/t-shirt.png";
 import casualShoes from "../../assets/category/casual-shoes.png";
 import flipFlops from "../../assets/category/flip-flops.png";
-// import trousers from "../../assets/category/trousers.png";
 import shirts from "../../assets/category/shirts.png";
 import sportsShoes from "../../assets/category/sports-shoes.png";
 
