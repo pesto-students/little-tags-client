@@ -16,61 +16,30 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import { FormattedMessage } from "react-intl";
 import Login from "../auth/Login";
-import { Icon } from "@material-ui/core";
+import { Avatar, Icon, TextField } from "@material-ui/core";
+import SearchBar from "../common/SearchBar";
+import iconPng from "../../assets/icon.png";
+import cartPng from "../../assets/cart.png";
+import searchPng from "../../assets/search.png";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(0),
+  logoButton: {
+    marginRight: theme.spacing(1),
   },
   title: {
     marginLeft: 2,
-    // display: "none",
-    // [theme.breakpoints.up("sm")]: {
-    //   display: "block",
-    // },
+  },
+  searchbar: {
+    width: theme.spacing(70),
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   iconText: {
     fontSize: 15,
-  },
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  inputRoot: {
-    color: "inherit",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
   },
   sectionDesktop: {
     display: "none",
@@ -80,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionMobile: {
     display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: theme.spacing(1),
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
@@ -200,46 +172,36 @@ const Navbar = ({ handleLanguageChange }) => {
   return (
     <div className={classes.grow}>
       <AppBar color="transparent" position="static">
-        <Toolbar>
+        <Toolbar className={classes.title}>
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className={classes.logoButton}
             color="inherit"
           >
-            <StorefrontOutlinedIcon />
-            <Typography className={classes.title} variant="h6" noWrap>
+            <Avatar src={iconPng} style={{ marginRight: 4 }} />
+            <Typography variant="h6" noWrap>
               OneTagShop
             </Typography>
           </IconButton>
 
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search your products"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
+          <div className={classes.searchbar}>
+            <SearchBar />
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
+            <IconButton color="inherit" size="small">
               <Badge badgeContent={0} color="secondary">
-                <ShoppingCartOutlinedIcon />
+                <Avatar variant="rounded" src={cartPng} />
               </Badge>
-              <span className={classes.iconText}>
+              {/* <span className={classes.iconText}>
                 <FormattedMessage id="cart" />
-              </span>
+              </span> */}
             </IconButton>
             <IconButton color="inherit" onClick={handleClickOpen}>
-              <AccountCircleOutlinedIcon />
-              <span className={classes.iconText}>
+              <AccountCircleOutlinedIcon fontSize="large" />
+              {/* <span className={classes.iconText}>
                 <FormattedMessage id="account" />
-              </span>
+              </span> */}
             </IconButton>
             <IconButton
               edge="end"
@@ -255,13 +217,13 @@ const Navbar = ({ handleLanguageChange }) => {
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
-            <IconButton
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
+            <IconButton color="inherit" size="small">
+              <Avatar src={searchPng} />
+            </IconButton>
+            <IconButton color="inherit" size="small">
+              <Badge badgeContent={0} color="secondary">
+                <Avatar src={cartPng} variant="rounded" />
+              </Badge>
             </IconButton>
           </div>
         </Toolbar>
