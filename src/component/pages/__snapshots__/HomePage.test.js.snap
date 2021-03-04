@@ -1,0 +1,446 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> renders correctly (snapshot) 1`] = `
+<IntlProvider
+  defaultFormats={Object {}}
+  defaultLocale="en"
+  formats={Object {}}
+  locale="en"
+  messages={
+    Object {
+      "account": "Sign in",
+      "buy": "Buy Now",
+      "cart": "Cart",
+      "casual-shoes": "Casual Shoes",
+      "flip-flops": "Flip-Flops",
+      "jeans": "Jeans",
+      "kurta": "Kurta",
+      "language": "English",
+      "message11": "Exclusive offer for her",
+      "message12": "Wear The Season's Latest Trends",
+      "message21": "Exclusive offer for him",
+      "message22": "Wear The Season's Latest Trends",
+      "message31": "Exclusive offer for your Kids",
+      "message32": "Catch the best deals",
+      "sarees": "Sarees",
+      "search": "Search your product",
+      "shirts": "Shirts",
+      "sports-shoes": "Sport Shoes",
+      "t-shirts": "T-Shirts",
+      "track-pants": "Track Pants",
+      "trousers": "Trousers",
+      "welcome": "Welcome to OneTagShop",
+    }
+  }
+  onError={[Function]}
+  textComponent={Symbol(react.fragment)}
+>
+  <HomePage>
+    <Carousel>
+      <div
+        className="slideshow-container"
+      >
+        <div
+          className="fade"
+          key="0"
+        >
+          <div
+            className="message-container"
+          >
+            <h1
+              className="message1"
+            >
+              <FormattedMessage
+                id="message11"
+              >
+                Exclusive offer for her
+              </FormattedMessage>
+            </h1>
+            <h1
+              className="message2"
+            >
+              <FormattedMessage
+                id="message12"
+              >
+                Wear The Season's Latest Trends
+              </FormattedMessage>
+            </h1>
+            <button
+              className="buy-now"
+            >
+              <FormattedMessage
+                id="buy"
+              >
+                Buy Now
+              </FormattedMessage>
+            </button>
+          </div>
+          <img
+            alt="women-banner"
+            className="image"
+            src="./carousel-images/women.jpg"
+          />
+        </div>
+        <div
+          className="mySlides"
+          key="1"
+        >
+          <div
+            className="message-container"
+          >
+            <h1
+              className="message1"
+            >
+              <FormattedMessage
+                id="message21"
+              >
+                Exclusive offer for him
+              </FormattedMessage>
+            </h1>
+            <h1
+              className="message2"
+            >
+              <FormattedMessage
+                id="message22"
+              >
+                Wear The Season's Latest Trends
+              </FormattedMessage>
+            </h1>
+            <button
+              className="buy-now"
+            >
+              <FormattedMessage
+                id="buy"
+              >
+                Buy Now
+              </FormattedMessage>
+            </button>
+          </div>
+          <img
+            alt="mens-banner"
+            className="image"
+            src="./carousel-images/mens.jpg"
+          />
+        </div>
+        <div
+          className="mySlides"
+          key="2"
+        >
+          <div
+            className="message-container"
+          >
+            <h1
+              className="message1"
+            >
+              <FormattedMessage
+                id="message31"
+              >
+                Exclusive offer for your Kids
+              </FormattedMessage>
+            </h1>
+            <h1
+              className="message2"
+            >
+              <FormattedMessage
+                id="message32"
+              >
+                Catch the best deals
+              </FormattedMessage>
+            </h1>
+            <button
+              className="buy-now"
+            >
+              <FormattedMessage
+                id="buy"
+              >
+                Buy Now
+              </FormattedMessage>
+            </button>
+          </div>
+          <img
+            alt="kids-banner"
+            className="image"
+            src="./carousel-images/kids.jpg"
+          />
+        </div>
+        <span
+          className="prev"
+          onClick={[Function]}
+        >
+          ❮
+        </span>
+        <span
+          className="next"
+          onClick={[Function]}
+        >
+          ❯
+        </span>
+      </div>
+      <br />
+      <div
+        className="dot-container"
+      >
+        <span
+          className="dot active"
+          onClick={[Function]}
+        />
+        <span
+          className="dot "
+          onClick={[Function]}
+        />
+        <span
+          className="dot "
+          onClick={[Function]}
+        />
+      </div>
+    </Carousel>
+    <CategoryCard>
+      <div
+        className="card-list"
+      >
+        <Card
+          category="casual-shoes"
+          src="./category/Casual-Shoe.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="casual-shoes"
+              height="300px"
+              src="./category/Casual-Shoe.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="casual-shoes"
+              >
+                Casual Shoes
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="flip-flops"
+          src="./category/Flipflop.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="flip-flops"
+              height="300px"
+              src="./category/Flipflop.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="flip-flops"
+              >
+                Flip-Flops
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="jeans"
+          src="./category/jeans.jpg"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="jeans"
+              height="300px"
+              src="./category/jeans.jpg"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="jeans"
+              >
+                Jeans
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="shirts"
+          src="./category/Shirts.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="shirts"
+              height="300px"
+              src="./category/Shirts.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="shirts"
+              >
+                Shirts
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="trousers"
+          src="./category/Shorts.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="trousers"
+              height="300px"
+              src="./category/Shorts.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="trousers"
+              >
+                Trousers
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="track-pants"
+          src="./category/Trackpants.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="track-pants"
+              height="300px"
+              src="./category/Trackpants.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="track-pants"
+              >
+                Track Pants
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="t-shirts"
+          src="./category/T-Shirts.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="t-shirts"
+              height="300px"
+              src="./category/T-Shirts.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="t-shirts"
+              >
+                T-Shirts
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="sports-shoes"
+          src="./category/Sports-Shoe.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="sports-shoes"
+              height="300px"
+              src="./category/Sports-Shoe.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="sports-shoes"
+              >
+                Sport Shoes
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="kurta"
+          src="./category/Kurta-_-Kurta_sets.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="kurta"
+              height="300px"
+              src="./category/Kurta-_-Kurta_sets.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="kurta"
+              >
+                Kurta
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+        <Card
+          category="sarees"
+          src="./category/Sarees.webp"
+        >
+          <div
+            className="card"
+          >
+            <img
+              alt="sarees"
+              height="300px"
+              src="./category/Sarees.webp"
+              width="300px"
+            />
+            <div
+              className="overlay"
+            >
+              <FormattedMessage
+                id="sarees"
+              >
+                Sarees
+              </FormattedMessage>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </CategoryCard>
+    <br />
+  </HomePage>
+</IntlProvider>
+`;
