@@ -9,32 +9,33 @@ import casualShoes from "../../assets/category/casual-shoes.png";
 import flipFlops from "../../assets/category/flip-flops.png";
 import shirts from "../../assets/category/shirts.png";
 import sportsShoes from "../../assets/category/sports-shoes.png";
+import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
   return (
     <>
       <Carousel></Carousel>
       <Typography align='center' gutterBottom variant="h4" component="h6" >
-      MOST IN DEMAND
-          </Typography>
+        <FormattedMessage id="category-heading" />
+      </Typography>
       <Grid container justify='center'>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={jeans} category="Top Deals on Jeans"></CategoryCard>
+          <CategoryCard src={jeans} category="jeans"></CategoryCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={tshirt} category="Explore T - shirts"></CategoryCard>
+          <CategoryCard src={tshirt} category="t-shirts"></CategoryCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={shirts} category="Best deals on Shirts"></CategoryCard>
+          <CategoryCard src={shirts} category="shirts"></CategoryCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={casualShoes} category="Catch the best Deals"></CategoryCard>
+          <CategoryCard src={casualShoes} category="casual-shoes"></CategoryCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={flipFlops} category="Everyday Classics"></CategoryCard>
+          <CategoryCard src={flipFlops} category="flip-flops"></CategoryCard>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <CategoryCard src={sportsShoes} category="Best of Activewear"></CategoryCard>
+          <CategoryCard src={sportsShoes} category="sports-shoes"></CategoryCard>
         </Grid>
         
       </Grid>
