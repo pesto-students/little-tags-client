@@ -1,6 +1,7 @@
 import React from "react";
-import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles, TextField, fade, Avatar } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Avatar from "@material-ui/core/Avatar";
 import searchPng from "../../assets/search.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 1, 1, 0),
     borderRadius: 20,
   },
+  root: {
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "black",
+    },
+  },
 }));
 
 const SearchBar = () => {
@@ -34,7 +40,7 @@ const SearchBar = () => {
         placeholder="Search your products"
         color="primary"
         classes={{
-          root: classes.inputRoot,
+          root: classes.root,
           input: classes.inputInput,
         }}
       />

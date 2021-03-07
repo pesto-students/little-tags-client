@@ -4,23 +4,21 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
 import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
-import SearchIcon from "@material-ui/icons/Search";
-import MoreIcon from "@material-ui/icons/MoreVert";
-import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import { FormattedMessage } from "react-intl";
 import Login from "../auth/Login";
-import { Avatar, Icon, TextField } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import SearchBar from "../common/SearchBar";
 import iconPng from "../../assets/icon.png";
 import cartPng from "../../assets/cart.png";
 import searchPng from "../../assets/search.png";
+import langPng from "../../assets/language.png";
+import accPng from "../../assets/user_account.png";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -40,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   iconText: {
     fontSize: 15,
+    marginLeft: theme.spacing(1),
   },
   sectionDesktop: {
     display: "none",
@@ -193,15 +192,9 @@ const Navbar = ({ handleLanguageChange }) => {
               <Badge badgeContent={0} color="secondary">
                 <Avatar variant="rounded" src={cartPng} />
               </Badge>
-              {/* <span className={classes.iconText}>
-                <FormattedMessage id="cart" />
-              </span> */}
             </IconButton>
-            <IconButton color="inherit" onClick={handleClickOpen}>
-              <AccountCircleOutlinedIcon fontSize="large" />
-              {/* <span className={classes.iconText}>
-                <FormattedMessage id="account" />
-              </span> */}
+            <IconButton color="inherit" onClick={handleClickOpen} size="medium">
+              <Avatar src={accPng} variant="rounded" />
             </IconButton>
             <IconButton
               edge="end"
@@ -210,7 +203,7 @@ const Navbar = ({ handleLanguageChange }) => {
               onClick={handleLanguageOptions}
               color="inherit"
             >
-              <LanguageOutlinedIcon />
+              <Avatar src={langPng} variant="rounded" />
               <span className={classes.iconText}>
                 <FormattedMessage id="language" />
               </span>
