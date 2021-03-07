@@ -63,6 +63,7 @@
   animation-duration: 1.5s;
   display: flex;
   max-height: inherit;
+  cursor: pointer;
 }
 
 .dot-container {

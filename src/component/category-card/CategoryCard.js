@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-
+import { FormattedMessage } from "react-intl";
 const useStyles = makeStyles({
   root: {
     minWidth: 300,
@@ -33,7 +33,7 @@ export default function CategoryCard(props) {
           image={props.src}
         />
          <Typography  className={classes.typography} align='center' gutterBottom variant="h4" component="h4" >
-           {props.category}
+          <FormattedMessage id={props.category} />
           </Typography>
       </CardActionArea>
     </Card>
