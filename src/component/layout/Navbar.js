@@ -1,56 +1,50 @@
 import React from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined";
-import LanguageOutlinedIcon from "@material-ui/icons/LanguageOutlined";
-import { FormattedMessage } from "react-intl";
-import Login from "../auth/Login";
 import Avatar from "@material-ui/core/Avatar";
 import SearchBar from "../common/SearchBar";
 import iconPng from "../../assets/icon.png";
-import cartPng from "../../assets/cart.png";
-import searchPng from "../../assets/search.png";
-import langPng from "../../assets/language.png";
-import accPng from "../../assets/user_account.png";
+import NavbarOptions from "../common/NavbarOptions";
+import DrawerOption from "../common/DrawerOption";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-  logoButton: {
-    marginRight: theme.spacing(1),
+  menuButton: {},
+  title: {},
+  iconText: {
+    fontSize: 15,
   },
-  title: {
-    marginLeft: 2,
+  search: {
+    marginRight: theme.spacing(2),
+
+    width: 600,
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      marginTop: 10,
+      marginBottom: 5,
+    },
   },
-  searchbar: {
-    width: theme.spacing(70),
+
+  sectionDesktop: {
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
-  iconText: {
-    fontSize: 15,
-    marginLeft: theme.spacing(1),
-  },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
   sectionMobile: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: theme.spacing(1),
+    flexDirection: "column",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  row1: {
+    display: "flex",
+    width: "100%",
     [theme.breakpoints.up("md")]: {
       display: "none",
     },
@@ -59,171 +53,60 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = ({ handleLanguageChange }) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleLanguageOptions = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem
-        onClick={() => {
-          handleLanguageChange("en");
-          handleMenuClose();
-        }}
-      >
-        English
-      </MenuItem>
-      <MenuItem
-        onClick={() => {
-          handleLanguageChange("hi");
-          handleMenuClose();
-        }}
-      >
-        हिन्दी
-      </MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "left" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "left" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton color="inherit">
-          <Badge badgeContent={0} color="secondary">
-            <ShoppingCartOutlinedIcon />
-          </Badge>
-        </IconButton>
-        <p>
-          <FormattedMessage id="cart" />
-        </p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton color="inherit" onClick={handleClickOpen}>
-          <Badge badgeContent={0} color="secondary">
-            <AccountCircleOutlinedIcon />
-          </Badge>
-        </IconButton>
-        <p>
-          <FormattedMessage id="account" />
-        </p>
-      </MenuItem>
-      <MenuItem onClick={handleLanguageOptions}>
-        <IconButton
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <LanguageOutlinedIcon />
-        </IconButton>
-        <p>
-          <FormattedMessage id="language" />
-        </p>
-      </MenuItem>
-    </Menu>
-  );
 
   return (
     <div className={classes.grow}>
       <AppBar color="transparent" position="static">
-        <Toolbar className={classes.title}>
+        <Toolbar className={classes.sectionDesktop}>
           <IconButton
             edge="start"
-            className={classes.logoButton}
+            className={classes.menuButton}
             color="inherit"
           >
-            <Avatar src={iconPng} style={{ marginRight: 4 }} />
-            <Typography variant="h6" noWrap>
+            <Avatar
+              src={iconPng}
+              style={{ marginRight: 4, width: 32, height: 32 }}
+            />
+            <Typography variant="h6" noWrap className={classes.title}>
               OneTagShop
             </Typography>
           </IconButton>
 
-          <div className={classes.searchbar}>
+          <div className={classes.search}>
             <SearchBar />
           </div>
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton color="inherit" size="small">
-              <Badge badgeContent={0} color="secondary">
-                <Avatar variant="rounded" src={cartPng} />
-              </Badge>
-            </IconButton>
-            <IconButton color="inherit" onClick={handleClickOpen} size="medium">
-              <Avatar src={accPng} variant="rounded" />
-            </IconButton>
+
+          <NavbarOptions handleLanguageChange={handleLanguageChange} />
+        </Toolbar>
+        <Toolbar className={classes.sectionMobile}>
+          <div className={classes.row1}>
+            <div style={{ alignSelf: "flex-start" }}>
+              <DrawerOption />
+            </div>
+            <div className={classes.grow} />
             <IconButton
-              edge="end"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleLanguageOptions}
+              edge="center"
+              className={classes.menuButton}
               color="inherit"
             >
-              <Avatar src={langPng} variant="rounded" />
-              <span className={classes.iconText}>
-                <FormattedMessage id="language" />
-              </span>
+              <Avatar
+                src={iconPng}
+                style={{ marginRight: 4, width: 32, height: 32 }}
+              />
+              <Typography variant="h6" noWrap className={classes.title}>
+                OneTagShop
+              </Typography>
             </IconButton>
+            <div className={classes.grow} />
+
+            <NavbarOptions />
           </div>
-          <div className={classes.sectionMobile}>
-            <IconButton color="inherit" size="small">
-              <Avatar src={searchPng} />
-            </IconButton>
-            <IconButton color="inherit" size="small">
-              <Badge badgeContent={0} color="secondary">
-                <Avatar src={cartPng} variant="rounded" />
-              </Badge>
-            </IconButton>
+          <div className={classes.search}>
+            <SearchBar />
           </div>
         </Toolbar>
       </AppBar>
-      <Login open={open} handleClose={handleClose} />
-      {renderMobileMenu}
-      {renderMenu}
     </div>
   );
 };

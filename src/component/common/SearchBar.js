@@ -1,35 +1,13 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Avatar from "@material-ui/core/Avatar";
 import searchPng from "../../assets/search.png";
-
-const useStyles = makeStyles((theme) => ({
-  search: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-
-    pointerEvents: "none",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    borderRadius: 20,
-  },
-  root: {
-    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "black",
-    },
-  },
-}));
+import { useNavBarStyles } from "./Styles/commonStyles";
 
 const SearchBar = () => {
-  const classes = useStyles();
+  const classes = useNavBarStyles();
   return (
-    <div className={classes.search}>
+    <div className={classes.root}>
       <div className={classes.searchIcon}>
         <Avatar src={searchPng} />
       </div>
@@ -40,7 +18,7 @@ const SearchBar = () => {
         placeholder="Search your products"
         color="primary"
         classes={{
-          root: classes.root,
+          root: classes.searchbarRoot,
           input: classes.inputInput,
         }}
       />
