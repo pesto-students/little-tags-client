@@ -1,0 +1,38 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+  box-shadow: 5px 5px 5px 5px #eee;
+  margin:2% 0 ;
+  padding: 1%;
+  text-decoration: none;
+  color: black;
+
+}
+
+.row{
+  height: 250px;
+  width: 280px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product-title{
+  text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.discount {
+  color: palevioletred;
+}
