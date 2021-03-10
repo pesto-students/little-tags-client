@@ -6,8 +6,6 @@ import two from "../../assets/product/2.jpeg";
 import three from "../../assets/product/3.jpeg";
 import four from "../../assets/product/5.jpeg";
 
-// import { useIntl } from 'react-intl';
-
 function ProductCarousel(params) {
   const slides = [
     {
@@ -83,11 +81,6 @@ function ProductCarousel(params) {
           );
         })}
       </div>
-      {/* <div className="dot-container">
-        <span className="dot" onClick={() =>{ showSlide(0)}}></span>
-        <span className="dot" onClick={() =>{ showSlide(1)}}></span>
-        <span className="dot" onClick={() =>{ showSlide(2)}}></span>
-      </div> */}
     </>
   );
 }
