@@ -19,7 +19,7 @@ const useNavBarStyles = makeStyles((theme) => ({
     },
   },
   mobileOnlyView: {
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("lg")]: {
       display: "none",
     },
   },
