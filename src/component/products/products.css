@@ -8,7 +8,6 @@
   padding: 1%;
   text-decoration: none;
   color: black;
-
 }
 
 .row{
@@ -34,5 +33,10 @@
 }
 
 .discount {
-  color: palevioletred;
+  color: #ff517b;
+}
+
+.discounted-price {
+  font-size: large;
+  font-weight: bold;
 }

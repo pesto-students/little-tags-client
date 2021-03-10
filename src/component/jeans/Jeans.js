@@ -30,7 +30,7 @@ class Jeans extends React.Component {
     });
 
     return (
-      <div className="product-container">
+      <div className="products-container">
         {products}
       </div>
      );

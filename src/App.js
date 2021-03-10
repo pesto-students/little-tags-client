@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./component/layout/Navbar";
 import HomePage from "./component/pages/HomePage";
 import Jeans from "./component/jeans/Jeans";
+import Product from "./component/product/Product";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 import React from "react";
@@ -34,7 +35,7 @@ function App() {
             <Jeans/>
           </Route>
           <Route exact path="/product/1">
-            <Jeans/>
+            <Product/>
           </Route>
         </Switch>
       </Router>

@@ -12,7 +12,10 @@
     "jeans": "Top Deals on Jeans",
     "shirts": "Best deals on Shirt",
     "t-shirts": "Explore T-shirts",
-    "sports-shoes": "Best of Activewear"
+    "sports-shoes": "Best of Activewear",
+    "tax":"inclusive of all taxes",
+    "add-to-bag":"ADD TO BAG",
+    "wishlist":"Wishlist"
   },
   "hi": {
     "welcome": "OneTagShop में आपका स्वागत है",
@@ -27,6 +30,9 @@
     "jeans":"जीन्स पर अच्छे सौदे",
     "shirts": "कमीज पर बेस्ट डील",
     "t-shirts": "टी शर्ट में ढूंढिये ",
-    "sports-shoes": "सबसे अच्छे सक्रिय कपडे"
+    "sports-shoes": "सबसे अच्छे सक्रिय कपडे",
+    "tax":"सभी करों को मिलाकर",
+    "add-to-bag":"थैले में डालें",
+    "wishlist":"इच्छा-सूची"
   }
 }
