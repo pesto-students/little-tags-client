@@ -9,6 +9,7 @@ import SearchBar from "../common/SearchBar";
 import iconPng from "../../assets/icon.png";
 import NavbarOptions from "../common/NavbarOptions";
 import DrawerOption from "../common/DrawerOption";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -50,6 +51,12 @@ const useStyles = makeStyles((theme) => ({
     //   display: "none",
     // },
   },
+
+  home: {
+    "text-decoration": "none",
+    color: "black",
+  }
+
 }));
 
 const Navbar = ({ handleLanguageChange }) => {
@@ -59,9 +66,13 @@ const Navbar = ({ handleLanguageChange }) => {
     <div className={classes.grow}>
       <AppBar color="transparent" position="static">
         <Toolbar className={classes.sectionDesktop}>
+
           <div style={{ alignSelf: "flex-start" }}>
             <DrawerOption />
           </div>
+
+        <Link exact="true" to={"/"} className={classes.home}>
+
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -75,7 +86,7 @@ const Navbar = ({ handleLanguageChange }) => {
               OneTagShop
             </Typography>
           </IconButton>
-
+          </Link>
           <div className={classes.search}>
             <SearchBar />
           </div>

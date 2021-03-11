@@ -54,7 +54,7 @@ function Carousel(params) {
             className={index === slideIndex ? 'fade' : 'mySlides'}
             key={index}
           >
-              <img src={slide.image} alt={slide.alt} className='image' />
+              <img src={slide.image} alt={slide.alt} className='product-image' />
           </div>
         );
       })}
