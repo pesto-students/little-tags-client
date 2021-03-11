@@ -22,9 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
 
     width: 600,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
       marginTop: 10,
       marginBottom: 5,
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   sectionDesktop: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
@@ -46,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
   row1: {
     display: "flex",
     width: "100%",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
+    // [theme.breakpoints.up("md")]: {
+    //   display: "none",
+    // },
   },
 
   home: {
@@ -65,7 +66,13 @@ const Navbar = ({ handleLanguageChange }) => {
     <div className={classes.grow}>
       <AppBar color="transparent" position="static">
         <Toolbar className={classes.sectionDesktop}>
+
+          <div style={{ alignSelf: "flex-start" }}>
+            <DrawerOption />
+          </div>
+
         <Link exact="true" to={"/"} className={classes.home}>
+
           <IconButton
             edge="start"
             className={classes.menuButton}
