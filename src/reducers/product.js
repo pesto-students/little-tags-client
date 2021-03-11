@@ -16,6 +16,7 @@ const initialState = {
 function productReducer(state = initialState, action) {
   const { type, payload } = action;
 
+  console.log("action", type);
   switch (type) {
     case SUGGEST_PRODUCTS:
       return {

@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
 
     width: 600,
     [theme.breakpoints.down("sm")]: {
