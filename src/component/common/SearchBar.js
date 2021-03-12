@@ -5,12 +5,13 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { IconButton, InputAdornment } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { connect } from "react-redux";
-import { suggestProducts } from "../../actions/product";
+import { suggestProducts, getProductByCategory } from "../../actions/product";
 import PropTypes from "prop-types";
 import { debounce } from "../../utils/debounce";
 
 const SearchBar = ({
   suggestProducts,
+  getProductByCategory,
   product: { product_suggestions, loading },
 }) => {
   const classes = useNavBarStyles();
@@ -20,6 +21,12 @@ const SearchBar = ({
     const debounced = debounce(suggestProducts, 500);
     debounced(e.target.value);
   };
+  const onItemSelect = (e, value) => {
+    e.preventDefault();
+    console.log(value);
+  };
+
+  const searchProduct = () => {};
 
   return (
     <div className={classes.root}>
@@ -28,6 +35,7 @@ const SearchBar = ({
         disableClearable
         fullWidth={true}
         options={product_suggestions.map((option) => option.title)}
+        onSelect={searchProduct}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -36,6 +44,7 @@ const SearchBar = ({
             placeholder="Search your products"
             color="primary"
             onChange={handleTextChange}
+            onSubmit={searchProduct}
             classes={{
               root: classes.searchbarRoot,
               input: classes.inputInput,
@@ -60,10 +69,14 @@ const SearchBar = ({
 
 SearchBar.propTypes = {
   suggestProducts: PropTypes.func.isRequired,
+  getProductByCategory: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   product: state.product,
 });
 
-export default connect(mapStateToProps, { suggestProducts })(SearchBar);
+export default connect(mapStateToProps, {
+  suggestProducts,
+  getProductByCategory,
+})(SearchBar);
