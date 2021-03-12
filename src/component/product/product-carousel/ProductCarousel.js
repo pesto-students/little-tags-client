@@ -1,33 +1,14 @@
-// import React from 'react';
+import React from "react";
 import { useState } from "react";
 import "./product-carousel.css";
-import one from "../../assets/product/1.jpeg";
-import two from "../../assets/product/2.jpeg";
-import three from "../../assets/product/3.jpeg";
-import four from "../../assets/product/5.jpeg";
 
-function ProductCarousel(params) {
-  const slides = [
-    {
-      image: one,
-      alt: "sport-shoes",
-    },
-    {
-      image: two,
-      alt: "mens-banner",
-    },
-    {
-      image: three,
-      alt: "sport-shoes",
-    },
-    {
-      image: four,
-      alt: "sport-shoes",
-    },
-  ];
+function ProductCarousel({ images }) {
+  const slides = images.map((img, index) => {
+    return { image: img, alt: `product image ${index}` };
+  });
 
   let [slideIndex, setSlideIndex] = useState(0);
-  const length =4;
+  const length = 4;
 
   const nextSlide = () => {
     setSlideIndex(slideIndex === length - 1 ? 0 : slideIndex + 1);
@@ -73,11 +54,16 @@ function ProductCarousel(params) {
           };
 
           return (
-            <div  key={index} className={`new-navigation-container ${slideIndex === index ? "active" : ""}`} onClick={() => {
-                  showSlide(index);
-                }} style={divStyle}>
-
-            </div>    
+            <div
+              key={index}
+              className={`new-navigation-container ${
+                slideIndex === index ? "active" : ""
+              }`}
+              onClick={() => {
+                showSlide(index);
+              }}
+              style={divStyle}
+            ></div>
           );
         })}
       </div>

@@ -3,12 +3,15 @@ import {
   GET_PRODUCTS,
   GET_PRODUCT_DETAILS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCT_CATEGORIES,
+  SHOW_LOADING,
 } from "../actions/types";
 
 const initialState = {
   product_suggestions: [],
   products: [],
-  product: null,
+  product_categories: [],
+  product_data: null,
   loading: true,
   errors: {},
 };
@@ -24,6 +27,12 @@ function productReducer(state = initialState, action) {
         product_suggestions: payload,
         loading: false,
       };
+    case GET_PRODUCT_CATEGORIES:
+      return {
+        ...state,
+        product_categories: payload,
+        loading: false,
+      };
     case GET_PRODUCTS:
       return {
         ...state,
@@ -33,7 +42,7 @@ function productReducer(state = initialState, action) {
     case GET_PRODUCT_DETAILS:
       return {
         ...state,
-        product: payload,
+        product_data: payload,
         loading: false,
       };
     case GET_PRODUCTS_ERROR:
@@ -41,6 +50,11 @@ function productReducer(state = initialState, action) {
         ...state,
         errors: payload,
         loading: false,
+      };
+    case SHOW_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

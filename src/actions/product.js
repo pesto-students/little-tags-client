@@ -3,10 +3,16 @@ import {
   GET_PRODUCTS,
   GET_PRODUCT_DETAILS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCT_CATEGORIES,
+  SHOW_LOADING,
 } from "./types";
 
 export const suggestProducts = (keyword) => async (dispatch) => {
   try {
+    dispatch({
+      type: SHOW_LOADING,
+      payload: null,
+    });
     const res = product_data.filter(
       (item) =>
         item.title.toLowerCase().includes(keyword.toLowerCase()) &&
@@ -17,6 +23,54 @@ export const suggestProducts = (keyword) => async (dispatch) => {
       payload: res,
     });
   } catch (err) {
+    dispatch({
+      type: GET_PRODUCTS_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getProductByCategory = (category) => async (dispatch) => {
+  try {
+    dispatch({
+      type: SHOW_LOADING,
+      payload: null,
+    });
+    console.log("fetching product for category", category);
+    const res_prom = await fetch("https://fakestoreapi.com/products");
+    const res = await res_prom.json();
+    console.log(res);
+    dispatch({
+      type: GET_PRODUCTS,
+      payload: res,
+    });
+  } catch (err) {
+    console.log("api error", err);
+    dispatch({
+      type: GET_PRODUCTS_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getProductById = (product_id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: SHOW_LOADING,
+      payload: null,
+    });
+    console.log("fetching product for id", product_id);
+    const res_prom = await fetch(
+      `https://fakestoreapi.com/products/${product_id}`
+    );
+    const res = await res_prom.json();
+    console.log(res);
+    dispatch({
+      type: GET_PRODUCT_DETAILS,
+      payload: res,
+    });
+  } catch (err) {
+    console.log("api error", err);
     dispatch({
       type: GET_PRODUCTS_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
