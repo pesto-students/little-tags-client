@@ -55,8 +55,7 @@ const useStyles = makeStyles((theme) => ({
   home: {
     "text-decoration": "none",
     color: "black",
-  }
-
+  },
 }));
 
 const Navbar = ({ handleLanguageChange }) => {
@@ -66,26 +65,24 @@ const Navbar = ({ handleLanguageChange }) => {
     <div className={classes.grow}>
       <AppBar color="transparent" position="static">
         <Toolbar className={classes.sectionDesktop}>
-
           <div style={{ alignSelf: "flex-start" }}>
             <DrawerOption />
           </div>
 
-        <Link exact="true" to={"/"} className={classes.home}>
-
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-          >
-            <Avatar
-              src={iconPng}
-              style={{ marginRight: 4, width: 32, height: 32 }}
-            />
-            <Typography variant="h6" noWrap className={classes.title}>
-              OneTagShop
-            </Typography>
-          </IconButton>
+          <Link exact="true" to={"/"} className={classes.home}>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+            >
+              <Avatar
+                src={iconPng}
+                style={{ marginRight: 4, width: 32, height: 32 }}
+              />
+              <Typography variant="h6" noWrap className={classes.title}>
+                OneTagShop
+              </Typography>
+            </IconButton>
           </Link>
           <div className={classes.search}>
             <SearchBar />
@@ -100,19 +97,21 @@ const Navbar = ({ handleLanguageChange }) => {
               <DrawerOption />
             </div>
             <div className={classes.grow} />
-            <IconButton
-              edge="center"
-              className={classes.menuButton}
-              color="inherit"
-            >
-              <Avatar
-                src={iconPng}
-                style={{ marginRight: 4, width: 32, height: 32 }}
-              />
-              <Typography variant="h6" noWrap className={classes.title}>
-                OneTagShop
-              </Typography>
-            </IconButton>
+            <Link exact="true" to={"/"} className={classes.home}>
+              <IconButton
+                edge="center"
+                className={classes.menuButton}
+                color="inherit"
+              >
+                <Avatar
+                  src={iconPng}
+                  style={{ marginRight: 4, width: 32, height: 32 }}
+                />
+                <Typography variant="h6" noWrap className={classes.title}>
+                  OneTagShop
+                </Typography>
+              </IconButton>
+            </Link>
             <div className={classes.grow} />
 
             <NavbarOptions />
