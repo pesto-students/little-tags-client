@@ -8,7 +8,7 @@ function ProductCarousel({ images }) {
   });
 
   let [slideIndex, setSlideIndex] = useState(0);
-  const length = 4;
+  const length = slides.length;
 
   const nextSlide = () => {
     setSlideIndex(slideIndex === length - 1 ? 0 : slideIndex + 1);

@@ -1,6 +1,8 @@
 import "./App.css";
 import Navbar from "./component/layout/Navbar";
 import HomePage from "./component/pages/HomePage";
+import Checkout from "./component/checkout/Checkout";
+import Cart from "./component/cart/Cart";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 import React from "react";
@@ -22,6 +24,8 @@ function App() {
           <Switch>
             <Route exact path="/products/:category" component={ProductList} />
             <Route exact path="/product/:product_id" component={Product} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/cart" component={Cart} />
           </Switch>
         </Router>
       </Provider>

@@ -4,12 +4,13 @@ import "./product.css";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
-import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getProductById } from "../../actions/product";
 import { CircularProgress } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 
 const Product = ({
   getProductById,
@@ -72,15 +73,18 @@ const Product = ({
                 >
                   <FormattedMessage id="add-to-bag" />
                 </Button>
-                <Button
-                  className="wishlist"
-                  variant="contained"
-                  size="medium"
-                  color="default"
-                  startIcon={<FavoriteBorderOutlinedIcon />}
-                >
-                  <FormattedMessage id="wishlist" />
-                </Button>
+                <Link exact="true" to={`/checkout`} className="buy-now-link">
+                  <Button
+                    className="buy-now"
+                    variant="contained"
+                    size="large"
+                    color="default"
+                    startIcon={<LocalMallOutlinedIcon />}
+                  >
+                    <FormattedMessage id="buy" />
+                  </Button>
+                </Link>
+                
               </div>
             </div>
           </>

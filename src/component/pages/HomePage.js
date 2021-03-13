@@ -12,13 +12,18 @@ import sportsShoes from "../../assets/category/sports-shoes.png";
 import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
+  const categoryContainerStyle = {
+    width: "80%",
+    "margin-left": "10%"
+  };
+
   return (
     <>
       <Carousel></Carousel>
       <Typography align="center" gutterBottom variant="h4" component="h6">
         <FormattedMessage id="category-heading" />
       </Typography>
-      <Grid container justify="center">
+      <Grid container justify="center" style={categoryContainerStyle}>
         <Grid item xs={12} sm={6} md={6}>
           <CategoryCard src={jeans} category="jeans"></CategoryCard>
         </Grid>
