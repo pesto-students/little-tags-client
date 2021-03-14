@@ -3,12 +3,12 @@ import { Carousel } from "../carousel/Carousel";
 import CategoryCard from "../category-card/CategoryCard";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import jeans from "../../assets/category/jeans.png";
-import tshirt from "../../assets/category/t-shirt.png";
-import casualShoes from "../../assets/category/casual-shoes.png";
-import flipFlops from "../../assets/category/flip-flops.png";
-import shirts from "../../assets/category/shirts.png";
-import sportsShoes from "../../assets/category/sports-shoes.png";
+import jeans from "../../assets/category/jeans.webp";
+import tshirt from "../../assets/category/t-shirt.webp";
+import casualShoes from "../../assets/category/casual-shoes.webp";
+import flipFlops from "../../assets/category/flip-flops.webp";
+import shirts from "../../assets/category/shirts.webp";
+import sportsShoes from "../../assets/category/sports-shoes.webp";
 import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {

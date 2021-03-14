@@ -9,11 +9,15 @@ const CartOption = ({ onClick }) => {
   const classes = useNavBarStyles();
   return (
     <Link exact="true" to={`/cart`} className="buy-now-link">
-    <IconButton color="inherit" onClick={onClick}>
-      <Badge badgeContent={0} color="secondary">
-        <Avatar variant="rounded" src={cartPng} className={classes.iconStyle} />
-      </Badge>
-    </IconButton>
+      <IconButton color="inherit" onClick={onClick}>
+        <Badge badgeContent={0} color="secondary">
+          <Avatar
+            variant="rounded"
+            src={cartPng}
+            className={classes.iconStyle}
+          />
+        </Badge>
+      </IconButton>
     </Link>
   );
 };
