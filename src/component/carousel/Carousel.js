@@ -1,10 +1,10 @@
 // import React from 'react';
 import { useState } from "react";
 import "./carousel.css";
-import banner1 from "../../assets/carousel-images/1.png";
-import banner2 from "../../assets/carousel-images/2.png";
-import hiBanner1 from "../../assets/carousel-images/hi/1.png";
-import hiBanner2 from "../../assets/carousel-images/hi/2.png";
+import banner1 from "../../assets/carousel-images/1.webp";
+import banner2 from "../../assets/carousel-images/2.webp";
+import hiBanner1 from "../../assets/carousel-images/hi/1.webp";
+import hiBanner2 from "../../assets/carousel-images/hi/2.webp";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 
