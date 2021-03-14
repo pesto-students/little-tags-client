@@ -80,13 +80,13 @@
   display: flex;
   flex-direction: column;
 }
+
 .message1{
   width:35%;
   position: absolute;
   top:20%;
   left:15%;
   overflow-wrap: break-word;
-  animation: move-left-to-right-h1 2s;
   text-align: center;
 }
 
@@ -98,33 +98,6 @@
   overflow-wrap: break-word;
   animation: move-left-to-right-h2 2s;
   text-align: center;
-}
-
-.buy-now {
-  width:10%;
-  left:28%;
-  top:45%;
-  background: black;
-  color: white;
-  width: 10%;
-  padding: 1%;
-  border-radius: 5px;
-  font-size: inherit;
-  position: absolute;
-  animation: move-left-to-right-button 2s;
-}
-
-@keyframes move-left-to-right-h1 {
-  0%   {top: 20%; left: -100%;}
-  100% {top: 20%; left: 15%;}
-}
-@keyframes move-left-to-right-h2 {
-  0%   {top: 30%; left: -100%;}
-  100% {top: 30%; left: 15%;}
-}
-@keyframes move-left-to-right-button {
-  0%   {top: 45%; left: -100%;}
-  100% {top: 45%; left: 28%;}
 }
 
 /* On smaller screens, decrease text size */
@@ -154,11 +127,6 @@
     top: 53%;
     left: 25%;
   }
-
-  @keyframes move-left-to-right-button {
-    0%   {top: 53%; left: -100%;}
-    100% {top: 53%; left: 25%;}
-  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -179,11 +147,6 @@
     font-size: xx-small;
     top: 50%;
     left: 25%;
-  }
-
-  @keyframes move-left-to-right-button {
-    0%   {top: 50%; left: -100%;}
-    100% {top: 50%; left: 25%;}
   }
 
 }

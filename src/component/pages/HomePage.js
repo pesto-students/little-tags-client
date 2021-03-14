@@ -3,22 +3,27 @@ import { Carousel } from "../carousel/Carousel";
 import CategoryCard from "../category-card/CategoryCard";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import jeans from "../../assets/category/jeans.png";
-import tshirt from "../../assets/category/t-shirt.png";
-import casualShoes from "../../assets/category/casual-shoes.png";
-import flipFlops from "../../assets/category/flip-flops.png";
-import shirts from "../../assets/category/shirts.png";
-import sportsShoes from "../../assets/category/sports-shoes.png";
+import jeans from "../../assets/category/jeans.webp";
+import tshirt from "../../assets/category/t-shirt.webp";
+import casualShoes from "../../assets/category/casual-shoes.webp";
+import flipFlops from "../../assets/category/flip-flops.webp";
+import shirts from "../../assets/category/shirts.webp";
+import sportsShoes from "../../assets/category/sports-shoes.webp";
 import { FormattedMessage } from "react-intl";
 
 const HomePage = () => {
+  const categoryContainerStyle = {
+    width: "80%",
+    "margin-left": "10%"
+  };
+
   return (
     <>
       <Carousel></Carousel>
       <Typography align="center" gutterBottom variant="h4" component="h6">
         <FormattedMessage id="category-heading" />
       </Typography>
-      <Grid container justify="center">
+      <Grid container justify="center" style={categoryContainerStyle}>
         <Grid item xs={12} sm={6} md={6}>
           <CategoryCard src={jeans} category="jeans"></CategoryCard>
         </Grid>
