@@ -3,11 +3,15 @@
   flex-direction: column;
   height: 300px;
   width: 300px;
-  box-shadow: 5px 5px 5px 5px #eee;
+  border: 1px solid;
   margin: 2% 0;
   padding: 1%;
   text-decoration: none;
   color: black;
+}
+
+.container:hover { 
+  box-shadow: 5px 5px 5px 5px #ccc;
 }
 
 .row {

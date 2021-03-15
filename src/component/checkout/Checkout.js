@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import FastForwardRoundedIcon from "@material-ui/icons/FastForwardRounded";
 import CartProductCard from "../cart-product-card/CartProductCard";
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   return (
@@ -50,13 +51,19 @@ const Checkout = () => {
               <span>5000</span>
             </div>
           </div>
+          <Link
+        exact="true"
+        to={`/payment`}
+        className="wishlist-product-container"
+      >
           <Button
             variant="contained"
             className="cart-payment"
             startIcon={<FastForwardRoundedIcon />}
           >
-            Proceed to Payment
+            Proceed 
           </Button>
+          </Link>
         </div>
       </div>
     </div>

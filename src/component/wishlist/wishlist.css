@@ -1,0 +1,8 @@
+.wishlist-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+  margin-left: 10%;
+}

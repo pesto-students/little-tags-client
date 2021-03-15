@@ -1,0 +1,61 @@
+.wishlist-product-container {
+  display: flex;
+  flex-direction: column;
+  
+  margin: 2% 0;
+  padding: 1%;
+  text-decoration: none;
+  color: #000;
+}
+.wishlist-row {
+  height: 250px;
+  width: 280px;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.wishlist-product-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.wishlist-price-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
+}
+
+.wishlist-discount {
+  color: #ff517b;
+}
+
+.wishlist-discounted-price {
+  font-size: large;
+  font-weight: bold;
+}
+
+.wishlist-cta {
+  display: flex;
+  justify-content: space-around;
+  padding: 3% 0 0 0;
+  border-top:1px solid
+}
+
+.wishlist-card-container {
+  display: flex;
+  flex-direction: column;
+  padding:1%;
+  margin: 1%;
+  border: 1px solid;
+  height: 370px;
+  width: 300px;
+}
+
+.wishlist-card-container:hover {
+  box-shadow: 5px 5px 5px 5px #ccc;
+}
