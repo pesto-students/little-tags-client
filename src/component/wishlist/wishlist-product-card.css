@@ -1,9 +1,7 @@
 .wishlist-product-container {
   display: flex;
   flex-direction: column;
-  height: 300px;
-  width: 300px;
-  box-shadow: 5px 5px 5px 5px #eee;
+  
   margin: 2% 0;
   padding: 1%;
   text-decoration: none;
@@ -43,5 +41,21 @@
 
 .wishlist-cta {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 3% 0 0 0;
+  border-top:1px solid
+}
+
+.wishlist-card-container {
+  display: flex;
+  flex-direction: column;
+  padding:1%;
+  margin: 1%;
+  border: 1px solid;
+  height: 370px;
+  width: 300px;
+}
+
+.wishlist-card-container:hover {
+  box-shadow: 5px 5px 5px 5px #ccc;
 }

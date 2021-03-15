@@ -10,7 +10,7 @@ const WishlistProductCard = () => {
   const id = 1;
 
   return (
-    <>
+    <div className="wishlist-card-container">
       <Link
         exact="true"
         to={`/product/${id}`}
@@ -29,6 +29,8 @@ const WishlistProductCard = () => {
           &nbsp;
           <span className="wishlist-discount">(Rs.100 off)</span> &nbsp;
         </div>
+        
+      </Link>
         <div className="wishlist-cta">
           <Button variant="contained" color="secondary">
             Move TO BAG
@@ -37,8 +39,7 @@ const WishlistProductCard = () => {
             Remove
           </Button>
         </div>
-      </Link>
-    </>
+    </div>
   );
 };
 

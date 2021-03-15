@@ -13,8 +13,6 @@ const Wishlist = () => {
       <WishlistProductCard />
       <WishlistProductCard />
       <WishlistProductCard />
-      <WishlistProductCard />
-      <WishlistProductCard />
     </div>
   );
 };
