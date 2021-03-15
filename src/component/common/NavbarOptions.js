@@ -4,6 +4,7 @@ import AccountOption from "./AccountOption";
 import CartOption from "./CartOption";
 import LanguageOption from "./LanguageOption";
 import { useNavBarStyles } from "./Styles/commonStyles";
+import WishlistOption from "./WishlistOption";
 
 const NavbarOptions = ({ handleLanguageChange }) => {
   const classes = useNavBarStyles();
@@ -12,6 +13,7 @@ const NavbarOptions = ({ handleLanguageChange }) => {
     <div className={classes.root}>
       <CartOption />
       <div className={classes.desktopOnlyView}>
+        <WishlistOption />
         <AccountOption />
         <LanguageOption handleLanguageChange={handleLanguageChange} />
       </div>

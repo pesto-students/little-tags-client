@@ -94,7 +94,7 @@ const Navbar = ({ handleLanguageChange }) => {
         <Toolbar className={classes.sectionMobile}>
           <div className={classes.row1}>
             <div style={{ alignSelf: "flex-start" }}>
-              <DrawerOption />
+              {/* <DrawerOption /> */}
             </div>
             <div className={classes.grow} />
             <Link exact="true" to={"/"} className={classes.home}>

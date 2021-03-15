@@ -13,6 +13,7 @@ const SearchBar = ({
   suggestProducts,
   getProductByCategory,
   product: { product_suggestions, loading },
+  history,
 }) => {
   const classes = useNavBarStyles();
 
@@ -23,10 +24,12 @@ const SearchBar = ({
   };
   const onItemSelect = (e, value) => {
     e.preventDefault();
-    console.log(value);
+    console.log("selected item", value);
   };
 
-  const searchProduct = () => {};
+  const searchProduct = () => {
+    console.log("submitted");
+  };
 
   return (
     <div className={classes.root}>
@@ -35,7 +38,7 @@ const SearchBar = ({
         disableClearable
         fullWidth={true}
         options={product_suggestions.map((option) => option.title)}
-        onSelect={searchProduct}
+        onSelect={onItemSelect}
         renderInput={(params) => (
           <TextField
             {...params}
