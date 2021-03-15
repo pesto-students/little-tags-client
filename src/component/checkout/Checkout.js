@@ -61,7 +61,7 @@ const Checkout = () => {
             className="cart-payment"
             startIcon={<FastForwardRoundedIcon />}
           >
-            Proceed to Payment
+            Proceed 
           </Button>
           </Link>
         </div>
