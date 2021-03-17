@@ -1,7 +1,10 @@
 import React from "react";
 import "./ProductCard.css";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { CardActionArea, IconButton } from "@material-ui/core";
+import { connect } from "react-redux";
+import { addToWishlist } from "../../actions/purchase";
 
 const ProductCard = ({
   id,
@@ -11,29 +14,51 @@ const ProductCard = ({
   discountedPrice,
   price,
   discount,
+  addToWishlist,
 }) => {
   const rowStyle = {
     backgroundImage: "url(" + src + ")",
   };
+  const history = useHistory();
+
+  const openProduct = () => {
+    history.push(`/product/${id}`);
+  };
+
+  const handleWishlist = () => {
+    addToWishlist({
+      id,
+      src,
+      title,
+      subHeader,
+      discountedPrice,
+      price,
+      discount,
+    });
+  };
 
   return (
-    <>
-      <Link exact="true" to={`/product/${id}`} className="container">
+    <div className="container">
+      <CardActionArea className="action-area" onClick={openProduct}>
         <div className="row" style={rowStyle}></div>
         <div className="product-title">{title}</div>
         <div>{subHeader}</div>
-        <div className="price-container">
-          <span className="discounted-price">Rs.{discountedPrice}</span> &nbsp;
-          <span>
-            <del>Rs.{price}</del>
-          </span>
+      </CardActionArea>
+      <div className="price-container">
+        <span className="discounted-price">Rs.{discountedPrice}</span> &nbsp;
+        <span>
+          <del>Rs.{price}</del>
+        </span>
+        {/* &nbsp; */}
+        <span className="discount">(Rs.{discount} off)</span>&nbsp;
+        <IconButton onClick={handleWishlist}>
           &nbsp;
-          <span className="discount">(Rs.{discount} off)</span> &nbsp;
           <FavoriteBorderOutlinedIcon />
-        </div>
-      </Link>
-    </>
+        </IconButton>
+        &nbsp;
+      </div>
+    </div>
   );
 };
 
-export default ProductCard;
+export default connect(null, { addToWishlist })(ProductCard);

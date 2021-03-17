@@ -5,12 +5,12 @@ import React from "react";
 import cartPng from "../../assets/cart.png";
 import { useNavBarStyles } from "./Styles/commonStyles";
 import { Link } from "react-router-dom";
-const CartOption = ({ onClick }) => {
+const CartOption = ({ onClick, cartItems }) => {
   const classes = useNavBarStyles();
   return (
     <Link exact="true" to={`/cart`} className="buy-now-link">
       <IconButton color="inherit" onClick={onClick}>
-        <Badge badgeContent={0} color="secondary">
+        <Badge badgeContent={cartItems} color="secondary">
           <Avatar
             variant="rounded"
             src={cartPng}

@@ -25,7 +25,10 @@ export const suggestProducts = (keyword) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: " err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };
@@ -48,7 +51,10 @@ export const getProductByCategory = (category) => async (dispatch) => {
     console.log("api error", err);
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: "err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };
@@ -73,7 +79,10 @@ export const getProductById = (product_id) => async (dispatch) => {
     console.log("api error", err);
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: "err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };

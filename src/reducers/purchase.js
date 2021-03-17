@@ -29,6 +29,17 @@ function purchaseReducer(state = initialState, action) {
         cartItems: state.cartItems.filter((item) => item.id !== payload.id),
       };
     case ADD_TO_WISHLIST:
+      const item_index = state.wishlistItems.findIndex(
+        (item) => item.id === payload.id
+      );
+      if (item_index > 0) {
+        return {
+          ...state,
+          wishlistItems: state.wishlistItems.filter(
+            (item) => item.id !== payload.id
+          ),
+        };
+      }
       return {
         ...state,
         wishlistItems: [...state.wishlistItems, payload],

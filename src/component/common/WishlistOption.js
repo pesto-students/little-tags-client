@@ -3,12 +3,15 @@ import Avatar from "@material-ui/core/Avatar";
 import React from "react";
 import favPng from "../../assets/favorite.png";
 import { useNavBarStyles } from "./Styles/commonStyles";
+import { Badge } from "@material-ui/core";
 
-const WishlistOption = () => {
+const WishlistOption = ({ itemCount }) => {
   const classes = useNavBarStyles();
   return (
     <IconButton color="inherit">
-      <Avatar src={favPng} className={classes.iconStyle} />
+      <Badge badgeContent={itemCount} color="secondary">
+        <Avatar src={favPng} className={classes.iconStyle} />
+      </Badge>
     </IconButton>
   );
 };

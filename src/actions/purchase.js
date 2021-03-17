@@ -41,3 +41,21 @@ export const removeFromCart = (product) => async (dispatch) => {
     });
   }
 };
+
+export const addToWishlist = (product) => async (dispatch) => {
+  try {
+    // todo!  make api call to remove product from cart
+    dispatch({
+      type: ADD_TO_WISHLIST,
+      payload: product,
+    });
+  } catch (error) {
+    dispatch({
+      type: API_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
