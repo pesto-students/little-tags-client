@@ -4,6 +4,7 @@ import React from "react";
 import accPng from "../../assets/user_account.png";
 import Login from "../auth/Login";
 import { useNavBarStyles } from "../common/Styles/commonStyles";
+import { Button } from "@material-ui/core";
 
 const AccountOption = () => {
   const classes = useNavBarStyles();
@@ -19,9 +20,9 @@ const AccountOption = () => {
 
   return (
     <>
-      <IconButton color="inherit" onClick={handleClickOpen}>
+      <Button color="inherit" onClick={handleClickOpen}>
         <Avatar src={accPng} className={classes.iconStyle} variant="rounded" />
-      </IconButton>
+      </Button>
       <Login open={open} handleClose={handleClose} />
     </>
   );

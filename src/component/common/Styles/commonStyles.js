@@ -12,6 +12,8 @@ const useNavBarStyles = makeStyles((theme) => ({
     width: 32,
     height: 32,
     marginLeft: 10,
+    marginRight: 8,
+    marginBottom: 5,
   },
   desktopOnlyView: {
     [theme.breakpoints.down("md")]: {

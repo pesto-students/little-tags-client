@@ -1,5 +1,5 @@
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import React from "react";
@@ -58,8 +58,8 @@ const LanguageOption = ({ handleLanguageChange }) => {
 
   return (
     <>
-      <IconButton
-        edge="end"
+      <Button
+        // edge="end"
         aria-controls={menuId}
         aria-haspopup="true"
         onClick={handleLanguageOptions}
@@ -69,7 +69,7 @@ const LanguageOption = ({ handleLanguageChange }) => {
         <span className={classes.iconText}>
           <FormattedMessage id="language" />
         </span>
-      </IconButton>
+      </Button>
       {renderMenu}
     </>
   );

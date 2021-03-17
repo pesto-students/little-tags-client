@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import SearchBar from "../common/SearchBar";
@@ -15,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-  menuButton: {},
+  menuButton: {
+    textTransform: "none",
+  },
   title: {},
   iconText: {
     fontSize: 15,
@@ -70,19 +73,13 @@ const Navbar = ({ handleLanguageChange }) => {
           </div>
 
           <Link exact="true" to={"/"} className={classes.home}>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-            >
+            <Button edge="start" className={classes.menuButton} color="inherit">
               <Avatar
                 src={iconPng}
                 style={{ marginRight: 4, width: 32, height: 32 }}
               />
-              <Typography variant="h6" noWrap className={classes.title}>
-                OneTagShop
-              </Typography>
-            </IconButton>
+              OneTagShop
+            </Button>
           </Link>
           <div className={classes.search}>
             <SearchBar />
@@ -94,11 +91,11 @@ const Navbar = ({ handleLanguageChange }) => {
         <Toolbar className={classes.sectionMobile}>
           <div className={classes.row1}>
             <div style={{ alignSelf: "flex-start" }}>
-              {/* <DrawerOption /> */}
+              <DrawerOption />
             </div>
             <div className={classes.grow} />
             <Link exact="true" to={"/"} className={classes.home}>
-              <IconButton
+              <Button
                 edge="center"
                 className={classes.menuButton}
                 color="inherit"
@@ -107,10 +104,8 @@ const Navbar = ({ handleLanguageChange }) => {
                   src={iconPng}
                   style={{ marginRight: 4, width: 32, height: 32 }}
                 />
-                <Typography variant="h6" noWrap className={classes.title}>
-                  OneTagShop
-                </Typography>
-              </IconButton>
+                OneTagShop
+              </Button>
             </Link>
             <div className={classes.grow} />
 
