@@ -1,4 +1,3 @@
-import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
 import React from "react";
@@ -25,7 +24,7 @@ const CartOption = ({ onClick, cartItems }) => {
       <Button color="inherit" onClick={onClick}>
         <Badge badgeContent={cartItems} color="secondary">
           <Avatar
-            style={{ marginRight: 8, marginBottom: 5 }}
+            // style={{ }}
             variant="square"
             src={cartPng}
             className={classes.iconStyle}
