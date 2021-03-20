@@ -30,20 +30,17 @@ const DrawerItems = () => {
         <ListItemIcon>
           <AccountOption />
         </ListItemIcon>
-        <ListItemText primary={"Account"} />
       </ListItem>
       <Divider />
       <ListItem button key={"wishlist"}>
         <ListItemIcon>
           <WishlistOption />
         </ListItemIcon>
-        <ListItemText primary={"Wishlist"} />
       </ListItem>
       <ListItem button key={"language"}>
         <ListItemIcon>
           <LanguageOption />
         </ListItemIcon>
-        <ListItemText primary={""} />
       </ListItem>
 
       <ListItem
@@ -56,10 +53,10 @@ const DrawerItems = () => {
           // justifySelf: "flex-end",
         }}
       >
-        <Divider />
+        {/* <Divider />
         <Button variant="contained" color="secondary">
           Logout
-        </Button>
+        </Button> */}
       </ListItem>
     </List>
   );

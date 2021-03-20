@@ -1,4 +1,3 @@
-import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
 import React from "react";
 import accPng from "../../assets/user_account.png";
@@ -22,6 +21,7 @@ const AccountOption = () => {
     <>
       <Button color="inherit" onClick={handleClickOpen}>
         <Avatar src={accPng} className={classes.iconStyle} variant="rounded" />
+        <div className={classes.mobileOnlyView}>Account</div>
       </Button>
       <Login open={open} handleClose={handleClose} />
     </>

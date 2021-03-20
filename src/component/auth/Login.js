@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
-    height: "100%",
+    width: "50%",
+    height: "50%",
     [theme.breakpoints.down("sm")]: {
       width: "auto",
       height: "auto",
@@ -47,9 +47,7 @@ const Login = ({ open, handleClose }) => {
   return (
     <Dialog fullScreen={fullScreen} scroll="body" open={open}>
       <div className={classes.contents}>
-        <div>
-          <img className={classes.banner} src={image} />
-        </div>
+        <div>{/* <img className={classes.banner} src={image} /> */}</div>
         <Typography className={classes.center}>Sign in with</Typography>
         <div className={classes.buttons}>
           <Button className={classes.google} variant="outlined">

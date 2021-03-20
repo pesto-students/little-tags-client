@@ -9,10 +9,10 @@ import { SwipeableDrawer } from "@material-ui/core";
 
 const DrawerOption = () => {
   const classes = useNavBarStyles();
-  const [open, setDrawerState] = useState(false);
+  const [drawer_open, setDrawerState] = useState(false);
 
   const toggleDrawer = () => {
-    setDrawerState(!open);
+    setDrawerState(!drawer_open);
   };
 
   return (
@@ -24,10 +24,10 @@ const DrawerOption = () => {
       <Avatar src={menuPng} className={classes.iconStyle} />
       <SwipeableDrawer
         anchor={"left"}
-        open={open}
+        open={drawer_open}
         onClick={toggleDrawer}
-        onClose={null}
-        onOpen={null}
+        onClose={() => {}}
+        onOpen={() => {}}
       >
         <DrawerItems />
       </SwipeableDrawer>
