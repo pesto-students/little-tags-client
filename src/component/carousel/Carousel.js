@@ -6,10 +6,11 @@ import banner2 from "../../assets/carousel-images/2.webp";
 import hiBanner1 from "../../assets/carousel-images/hi/1.webp";
 import hiBanner2 from "../../assets/carousel-images/hi/2.webp";
 import { useIntl } from "react-intl";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Carousel(params) {
   const intl = useIntl();
+  const history = useHistory();
   let image1 = banner1;
   let image2 = banner2;
 
@@ -44,12 +45,16 @@ function Carousel(params) {
     setSlideIndex(slideIndex === 0 ? length - 1 : slideIndex - 1);
   };
 
+  const handleCarouselClick = () => {
+    history.push(`/products?category=jeans`);
+  };
+
   return (
     <>
       <div className="slideshow-container">
         {slides.map((slide, index) => {
           return (
-            <Link exact="true" to={`/products/jeans`}>
+            <div onClick={handleCarouselClick}>
               <div
                 className={index === slideIndex ? "fade" : "mySlides"}
                 key={index}
@@ -60,7 +65,7 @@ function Carousel(params) {
                   className="product-image"
                 />
               </div>
-            </Link>
+            </div>
           );
         })}
 

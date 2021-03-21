@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    width: "50%",
-    height: "50%",
+    width: "auto",
+    height: "auto",
     [theme.breakpoints.down("sm")]: {
       width: "auto",
       height: "auto",

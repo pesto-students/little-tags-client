@@ -22,7 +22,7 @@ const Wishlist = ({ purchase: { wishlistItems, cartItems } }) => {
         title={item.title}
         subHeader={item.category}
         discountedPrice={item.price}
-        price={item.price * 2}
+        price={item.price}
         discount={item.price}
         key={item.id}
         wishListed={wishListed}

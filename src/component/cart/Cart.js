@@ -19,20 +19,7 @@ const Cart = ({ purchase: { cartItems, wishlistItems } }) => {
     );
     const addedToBag = cartIndex >= 0 ? true : false;
 
-    return (
-      <ProductCard
-        id={item.id}
-        src={item.image}
-        title={item.title}
-        subHeader={item.category}
-        discountedPrice={item.price}
-        price={item.price * 2}
-        discount={item.price}
-        key={item.id}
-        wishListed={wishListed}
-        addedToBag={addedToBag}
-      />
-    );
+    return <CartProductCard />;
   });
 
   return (
