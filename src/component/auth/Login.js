@@ -47,7 +47,9 @@ const Login = ({ open, handleClose }) => {
   return (
     <Dialog fullScreen={fullScreen} scroll="body" open={open}>
       <div className={classes.contents}>
-        <div>{/* <img className={classes.banner} src={image} /> */}</div>
+        <div>
+          <img className={classes.banner} src={image} />
+        </div>
         <Typography className={classes.center}>Sign in with</Typography>
         <div className={classes.buttons}>
           <Button className={classes.google} variant="outlined">

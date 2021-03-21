@@ -9,6 +9,7 @@ import ProductCard from "./ProductCard";
 const ProductList = ({
   getProductByCategory,
   product: { products, loading },
+  purchase: { wishlistItems },
   location,
 }) => {
   useEffect(() => {
@@ -26,6 +27,10 @@ const ProductList = ({
   }, []);
 
   const product_list = products.map((item) => {
+    let wishListedIndex = wishlistItems.findIndex(
+      (wish_item) => wish_item.id === item.id
+    );
+    const wishListed = wishListedIndex > 0 ? true : false;
     return (
       <ProductCard
         id={item.id}
@@ -36,6 +41,7 @@ const ProductList = ({
         price={item.price * 2}
         discount={item.price}
         key={item.id}
+        wishListed={wishListed}
       />
     );
   });
@@ -58,6 +64,7 @@ ProductList.propTypes = {
 
 const mapStateToProps = (state) => ({
   product: state.product,
+  purchase: state.purchase,
 });
 
 export default connect(mapStateToProps, { getProductByCategory })(ProductList);
