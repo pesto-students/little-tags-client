@@ -19,6 +19,15 @@ function purchaseReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case ADD_TO_CART:
+      const cart_index = state.cartItems.findIndex(
+        (item) => item.id === payload.id
+      );
+      if (cart_index >= 0) {
+        return {
+          ...state,
+          cartItems: state.cartItems.filter((item) => item.id !== payload.id),
+        };
+      }
       return {
         ...state,
         cartItems: [...state.cartItems, payload],
@@ -32,7 +41,7 @@ function purchaseReducer(state = initialState, action) {
       const item_index = state.wishlistItems.findIndex(
         (item) => item.id === payload.id
       );
-      if (item_index > 0) {
+      if (item_index >= 0) {
         return {
           ...state,
           wishlistItems: state.wishlistItems.filter(

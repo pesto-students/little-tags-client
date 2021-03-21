@@ -9,7 +9,7 @@ import ProductCard from "./ProductCard";
 const ProductList = ({
   getProductByCategory,
   product: { products, loading },
-  purchase: { wishlistItems },
+  purchase: { wishlistItems, cartItems },
   location,
 }) => {
   useEffect(() => {
@@ -27,10 +27,14 @@ const ProductList = ({
   }, []);
 
   const product_list = products.map((item) => {
-    let wishListedIndex = wishlistItems.findIndex(
+    const wishListedIndex = wishlistItems.findIndex(
       (wish_item) => wish_item.id === item.id
     );
-    const wishListed = wishListedIndex > 0 ? true : false;
+    const wishListed = wishListedIndex >= 0 ? true : false;
+    const cartIndex = cartItems.findIndex(
+      (cart_item) => cart_item.id === item.id
+    );
+    const addedToBag = cartIndex >= 0 ? true : false;
     return (
       <ProductCard
         id={item.id}
@@ -42,6 +46,7 @@ const ProductList = ({
         discount={item.price}
         key={item.id}
         wishListed={wishListed}
+        addedToBag={addedToBag}
       />
     );
   });
