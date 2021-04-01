@@ -40,7 +40,7 @@ const SearchBar = ({
     e.preventDefault();
 
     console.log("selected item", value);
-    history.push(`/products/?keyword=${value}`);
+    history.push(`/products/?q=${value}`);
   };
 
   return (

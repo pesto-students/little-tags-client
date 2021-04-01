@@ -7,7 +7,7 @@ import {
   SHOW_LOADING,
 } from "./types";
 
-const END_POINT = "https://fakestoreapi.herokuapp.com";
+const END_POINT = "https://fakestoreapi.com";
 
 export const suggestProducts = (keyword) => async (dispatch) => {
   try {

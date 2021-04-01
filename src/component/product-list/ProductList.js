@@ -14,7 +14,7 @@ const ProductList = ({
 }) => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const keyword = params.get("keyword");
+    const keyword = params.get("q");
     if (keyword) {
       //perform product list by search with keyword
       getProductByCategory(keyword);
