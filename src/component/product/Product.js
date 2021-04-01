@@ -8,18 +8,25 @@ import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getProductById } from "../../actions/product";
+import { addToCart, removeFromCart } from "../../actions/purchase";
 import { CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
+import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
 
 const Product = ({
   getProductById,
+  addToCart,
+  removeFromCart,
   product: { product_data, loading },
   match,
 }) => {
   useEffect(() => {
     getProductById(match.params.product_id);
   }, []);
+
+  const handleAddToCart = () => {
+    addToCart(product_data);
+  };
 
   if (product_data == null) {
     return (
@@ -70,6 +77,7 @@ const Product = ({
                   size="large"
                   className="add-to-bag"
                   startIcon={<ControlPointIcon />}
+                  onClick={handleAddToCart}
                 >
                   <FormattedMessage id="add-to-bag" />
                 </Button>
@@ -84,7 +92,6 @@ const Product = ({
                     <FormattedMessage id="buy" />
                   </Button>
                 </Link>
-                
               </div>
             </div>
           </>
@@ -103,4 +110,8 @@ const mapStateToProps = (state) => ({
   product: state.product,
 });
 
-export default connect(mapStateToProps, { getProductById })(Product);
+export default connect(mapStateToProps, {
+  getProductById,
+  addToCart,
+  removeFromCart,
+})(Product);

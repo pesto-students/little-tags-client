@@ -7,6 +7,8 @@ import {
   SHOW_LOADING,
 } from "./types";
 
+const END_POINT = "https://fakestoreapi.com";
+
 export const suggestProducts = (keyword) => async (dispatch) => {
   try {
     dispatch({
@@ -25,7 +27,10 @@ export const suggestProducts = (keyword) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: " err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };
@@ -37,7 +42,7 @@ export const getProductByCategory = (category) => async (dispatch) => {
       payload: null,
     });
     console.log("fetching product for category", category);
-    const res_prom = await fetch("https://fakestoreapi.com/products");
+    const res_prom = await fetch(`${END_POINT}/products`);
     const res = await res_prom.json();
     console.log(res);
     dispatch({
@@ -48,7 +53,10 @@ export const getProductByCategory = (category) => async (dispatch) => {
     console.log("api error", err);
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: "err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };
@@ -60,9 +68,7 @@ export const getProductById = (product_id) => async (dispatch) => {
       payload: null,
     });
     console.log("fetching product for id", product_id);
-    const res_prom = await fetch(
-      `https://fakestoreapi.com/products/${product_id}`
-    );
+    const res_prom = await fetch(`${END_POINT}/products/${product_id}`);
     const res = await res_prom.json();
     console.log(res);
     dispatch({
@@ -73,7 +79,10 @@ export const getProductById = (product_id) => async (dispatch) => {
     console.log("api error", err);
     dispatch({
       type: GET_PRODUCTS_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: "err.response.statusText",
+        status: "err.response.status",
+      },
     });
   }
 };

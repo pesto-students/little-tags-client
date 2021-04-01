@@ -24,7 +24,7 @@ function App() {
           <Navbar handleLanguageChange={(lang) => setLocale(lang)} />
           <Route exact path="/" component={HomePage} />
           <Switch>
-            <Route exact path="/products/:category" component={ProductList} />
+            <Route exact path="/products" component={ProductList} />
             <Route exact path="/product/:product_id" component={Product} />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/cart" component={Cart} />

@@ -9,13 +9,32 @@ import ProductCard from "./ProductCard";
 const ProductList = ({
   getProductByCategory,
   product: { products, loading },
-  match,
+  purchase: { wishlistItems, cartItems },
+  location,
 }) => {
   useEffect(() => {
-    getProductByCategory(match.params.category);
+    const params = new URLSearchParams(location.search);
+    const keyword = params.get("q");
+    if (keyword) {
+      //perform product list by search with keyword
+      getProductByCategory(keyword);
+    } else {
+      // perform product listing with category
+      let category = params.get("category");
+
+      getProductByCategory(category);
+    }
   }, []);
-  console.log(loading);
+
   const product_list = products.map((item) => {
+    const wishListedIndex = wishlistItems.findIndex(
+      (wish_item) => wish_item.id === item.id
+    );
+    const wishListed = wishListedIndex >= 0 ? true : false;
+    const cartIndex = cartItems.findIndex(
+      (cart_item) => cart_item.id === item.id
+    );
+    const addedToBag = cartIndex >= 0 ? true : false;
     return (
       <ProductCard
         id={item.id}
@@ -26,6 +45,8 @@ const ProductList = ({
         price={item.price * 2}
         discount={item.price}
         key={item.id}
+        wishListed={wishListed}
+        addedToBag={addedToBag}
       />
     );
   });
@@ -48,6 +69,7 @@ ProductList.propTypes = {
 
 const mapStateToProps = (state) => ({
   product: state.product,
+  purchase: state.purchase,
 });
 
 export default connect(mapStateToProps, { getProductByCategory })(ProductList);
